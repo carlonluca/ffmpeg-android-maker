@@ -14,6 +14,8 @@ if [ "$FFMPEG_GPL_ENABLED" = true ] ; then
     EXTRA_BUILD_CONFIGURATION_FLAGS="$EXTRA_BUILD_CONFIGURATION_FLAGS --enable-gpl"
 fi
 
+PARAM_PIC=$([ "$ENABLE_PIC" -eq 1 ] && echo "--enable-pic" || echo "")
+
 # Preparing flags for enabling requested libraries
 ADDITIONAL_COMPONENTS=
 for LIBARY_NAME in ${FFMPEG_EXTERNAL_LIBRARIES[@]}
@@ -43,6 +45,7 @@ DEP_LD_FLAGS="-L${BUILD_DIR_EXTERNAL}/${ANDROID_ABI}/lib $FFMPEG_EXTRA_LD_FLAGS"
   --extra-ldflags="$DEP_LD_FLAGS" \
   --enable-shared \
   --disable-static \
+  ${PARAM_PIC} \
   --disable-vulkan \
   --pkg-config=${PKG_CONFIG_EXECUTABLE} \
   ${EXTRA_BUILD_CONFIGURATION_FLAGS} \
