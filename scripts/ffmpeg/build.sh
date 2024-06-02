@@ -52,6 +52,22 @@ PARAM_ASM=$([ "$ENABLE_ASM" -eq 1 ] && echo "--enable-asm" || echo "--disable-as
   ${PARAM_ASM} \
   --disable-vulkan \
   --pkg-config=${PKG_CONFIG_EXECUTABLE} \
+  --disable-programs \
+  --disable-doc \
+  --disable-debug \
+  --enable-network \
+  --disable-lzma \
+  --enable-pic \
+  --disable-vulkan \
+  --disable-v4l2-m2m \
+  --disable-decoder=truemotion1 \
+  --enable-jni \
+  --enable-mediacodec \
+  --disable-openssl \
+  --enable-pthreads \
+  --enable-neon \
+  --disable-asm \
+  --disable-indev=android_camera \
   ${EXTRA_BUILD_CONFIGURATION_FLAGS} \
   $ADDITIONAL_COMPONENTS || exit 1
 
