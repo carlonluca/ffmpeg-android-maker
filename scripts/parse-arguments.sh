@@ -15,6 +15,7 @@ FFMPEG_GPL_ENABLED=false
 ENABLE_SHARED=1
 ENABLE_STATIC=0
 ENABLE_PIC=0
+ENABLE_ASM=1
 
 # All FREE libraries that are supported
 SUPPORTED_LIBRARIES_FREE=(
@@ -152,6 +153,12 @@ for argument in "$@"; do
     ;;
   --enable-pic)
     ENABLE_PIC=1
+    ;;
+  --enable-asm)
+    ENABLE_ASM=1
+    ;;
+  --disable-asm)
+    ENABLE_ASM=0
     ;;
   *)
     echo "Unknown argument $argument"
