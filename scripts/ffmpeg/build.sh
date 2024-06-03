@@ -27,8 +27,6 @@ DEP_LD_FLAGS="-L${BUILD_DIR_EXTERNAL}/${ANDROID_ABI}/lib $FFMPEG_EXTRA_LD_FLAGS"
 
 PARAM_SHARED=$([ "$ENABLE_SHARED" -eq 1 ] && echo "--enable-shared" || echo "--disable-shared")
 PARAM_STATIC=$([ "$ENABLE_STATIC" -eq 1 ] && echo "--enable-static" || echo "--disable-static")
-PARAM_PIC=$([ "$ENABLE_PIC" -eq 1 ] && echo "--enable-pic" || echo "")
-PARAM_ASM=$([ "$ENABLE_ASM" -eq 1 ] && echo "--enable-asm" || echo "--disable-asm")
 
 ./configure \
   --prefix=${BUILD_DIR_FFMPEG}/${ANDROID_ABI} \
@@ -48,8 +46,6 @@ PARAM_ASM=$([ "$ENABLE_ASM" -eq 1 ] && echo "--enable-asm" || echo "--disable-as
   --extra-ldflags="$DEP_LD_FLAGS" \
   ${PARAM_SHARED} \
   ${PARAM_STATIC} \
-  ${PARAM_PIC} \
-  ${PARAM_ASM} \
   --disable-vulkan \
   --pkg-config=${PKG_CONFIG_EXECUTABLE} \
   --disable-programs \
